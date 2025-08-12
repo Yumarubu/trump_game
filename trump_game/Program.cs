@@ -43,6 +43,30 @@ namespace trump_game
                     }
                 }
             }
+
+            //入力した4つのトランプのカードの番号を確認し、判定する
+            if (trumps[0] == trumps[1] && trumps[0] == trumps[2] && trumps[0] == trumps[3])
+            {
+                Console.WriteLine("フォーカード");
+            }
+            else if (trumps[0] == trumps[1] && trumps[0] == trumps[2] && trumps[0] != trumps[3] || trumps[1] == trumps[2] && trumps[1] == trumps[3] && trumps[1] != trumps[0] || trumps[2]  == trumps[0] && trumps[2] == trumps[3] && trumps[2] != trumps[1] || trumps[3] == trumps[0] && trumps[3] == trumps[1] && trumps[3] != trumps[2])
+            {
+                Console.WriteLine("スリーカード");
+            }
+            else if (trumps[0] == trumps[1] && trumps[2] == trumps[3] || trumps[0] == trumps[3] && trumps[1] == trumps[2] || trumps[0] == trumps[2] && trumps[1] == trumps[3])
+            {
+                Console.WriteLine("ツーペア");
+            }
+            else if (trumps[0] == trumps[1] && trumps[0] != trumps[2] && trumps[0] != trumps[3] || trumps[1] == trumps[2] && trumps[1] != trumps[3] && trumps[1] != trumps[0] || trumps[2] == trumps[3] && trumps[2] != trumps[1] && trumps[2] != trumps[0] || trumps[0] == trumps[3] && trumps[0] != trumps[1] && trumps[0] != trumps[2] || trumps[0] == trumps[2] && trumps[0] != trumps[1] && trumps[0] != trumps[3] || trumps[1] == trumps[3] && trumps[1] != trumps[0] && trumps[1] != trumps[2])
+            {
+                Console.WriteLine("ワンペア");
+            }
+            else
+            {
+                Console.WriteLine("ノーペア");
+            }
+
+            Console.ReadLine();
         }
     }
 }
