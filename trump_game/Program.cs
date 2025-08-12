@@ -15,7 +15,7 @@ namespace trump_game
             {
                 //まずはタイトル表示からの1～4の数字を4回分入力する
                 Console.WriteLine("**トランプゲーム**");
-                Console.WriteLine("1～4の値を入力してください");
+                Console.WriteLine("1～13の値を入力してください");
 
                 //配列を用意
                 int[] trumps = new int[4];
@@ -32,9 +32,9 @@ namespace trump_game
                     //結果に応じて、次に進む
                     while (true)
                     {
-                        if (!numJuage || trumpNumber < 1 || trumpNumber > 4)
+                        if (!numJuage || trumpNumber < 1 || trumpNumber > 13)
                         {
-                            Console.WriteLine("入力値が違います");
+                            Console.WriteLine("入力範囲外です");
                             Console.Write("もう一度、カードの値を入力してください > ");
                             trumpNum = Console.ReadLine();
                             numJuage = int.TryParse(trumpNum, out trumpNumber);
