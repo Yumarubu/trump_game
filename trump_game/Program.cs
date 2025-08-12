@@ -15,36 +15,22 @@ namespace trump_game
             {
                 //まずはタイトル表示からの1～4の数字を4回分入力する
                 Console.WriteLine("**トランプゲーム**");
-                Console.WriteLine("1～13の値を入力してください");
+                Console.WriteLine("まずは1～13の値をランダムで入れてくね！");
 
                 //配列を用意
                 int[] trumps = new int[4];
 
+                //ランダム関数を用意(範囲は1～13まで)
+                Random rnd = new Random();
+
                 for (int i = 0; i < 4; i++)
                 {
-                    Console.Write($"{i + 1}番目のカードの数字を入力してください > ");
-                    string trumpNum = Console.ReadLine();
-
                     //数字のデータを格納する変数を用意
-                    int trumpNumber;
-                    bool numJuage = int.TryParse(trumpNum, out trumpNumber);
+                    int trumpNumber = rnd.Next(1, 13);
+                    trumps[i] = trumpNumber;
 
-                    //結果に応じて、次に進む
-                    while (true)
-                    {
-                        if (!numJuage || trumpNumber < 1 || trumpNumber > 13)
-                        {
-                            Console.WriteLine("入力範囲外です");
-                            Console.Write("もう一度、カードの値を入力してください > ");
-                            trumpNum = Console.ReadLine();
-                            numJuage = int.TryParse(trumpNum, out trumpNumber);
-                        }
-                        else if (numJuage)
-                        {
-                            trumps[i] = trumpNumber;
-                            break;
-                        }
-                    }
+                    Console.WriteLine($"{i + 1}枚目のトランプ数値:{trumps[i]}");
+                    Console.WriteLine();
                 }
 
                 //入力した4つのトランプのカードの番号を確認し、判定する
@@ -148,7 +134,6 @@ namespace trump_game
                     break;
                 }
             }
-
             Console.ReadLine() ;
         }
     }
